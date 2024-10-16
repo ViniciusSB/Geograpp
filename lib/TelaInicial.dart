@@ -47,10 +47,10 @@ class _TelaInicialState extends State<TelaInicial>
             labelColor: Colors.white,
             unselectedLabelColor: Colors.white.withOpacity(0.5),
             isScrollable: true,
+            tabAlignment: TabAlignment.center,
             tabs: [
               Tab(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
                       "Quiz Tocantins",
@@ -67,7 +67,6 @@ class _TelaInicialState extends State<TelaInicial>
               ),
               Tab(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
                       "Jogo da memória",
@@ -87,7 +86,6 @@ class _TelaInicialState extends State<TelaInicial>
               ),
               Tab(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
                       "Blocos Deslizantes",

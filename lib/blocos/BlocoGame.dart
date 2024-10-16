@@ -6,14 +6,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/widgets.dart';
-import 'package:geograpp/utilitarios/Imagens.dart';
 import 'package:geograpp/utilitarios/Textos.dart';
 
 class BlocoGame extends StatefulWidget {
   final String imagemQuebraCabeca;
-  final int nivel;
-  const BlocoGame(
-      {super.key, required this.imagemQuebraCabeca, required this.nivel});
+  const BlocoGame({super.key, required this.imagemQuebraCabeca});
 
   @override
   State<BlocoGame> createState() => _BlocoGameState();
@@ -23,7 +20,7 @@ class _BlocoGameState extends State<BlocoGame> {
   late String imagemQuebraCabeca;
   late List<String?> _imagens = [];
   late int _segundosPassados = 0;
-  late int nivel;
+  int nivel = 0;
   late Timer? _timer = null;
   bool jogoEmbaralhado = false;
   int _celulaVazia = 99;
@@ -97,7 +94,7 @@ class _BlocoGameState extends State<BlocoGame> {
     jogoEmbaralhado = true;
     inserirImagens();
 
-    _imagens = carregarImagens();
+    //_imagens = carregarImagens();
 
     embaralharEmMovimetosValidos(_imagens.length);
 
@@ -303,7 +300,7 @@ class _BlocoGameState extends State<BlocoGame> {
     List<String?> imagens = [];
     switch (imagemQuebraCabeca) {
       case 'relogio':
-        if (widget.nivel == 3) {
+        if (nivel == 3 || nivel == 0) {
           imagens.addAll([
             "lib/imagens/blocos/relogio/3x3/relogio-1.jpg",
             "lib/imagens/blocos/relogio/3x3/relogio-2.jpg",
@@ -315,7 +312,7 @@ class _BlocoGameState extends State<BlocoGame> {
             "lib/imagens/blocos/relogio/3x3/relogio-8.jpg",
             null,
           ]);
-        } else if (widget.nivel == 4) {
+        } else if (nivel == 4) {
           imagens.addAll([
             "lib/imagens/blocos/relogio/4x4/relogio-1.jpg",
             "lib/imagens/blocos/relogio/4x4/relogio-2.jpg",
@@ -337,7 +334,7 @@ class _BlocoGameState extends State<BlocoGame> {
         }
         break;
       case 'monumento':
-        if (widget.nivel == 3) {
+        if (nivel == 3 || nivel == 0) {
           imagens.addAll([
             "lib/imagens/blocos/monumento/3x3/monumento-1.jpg",
             "lib/imagens/blocos/monumento/3x3/monumento-2.jpg",
@@ -349,7 +346,7 @@ class _BlocoGameState extends State<BlocoGame> {
             "lib/imagens/blocos/monumento/3x3/monumento-8.jpg",
             null,
           ]);
-        } else if (widget.nivel == 4) {
+        } else if (nivel == 4) {
           imagens.addAll([
             "lib/imagens/blocos/monumento/4x4/monumento-1.jpg",
             "lib/imagens/blocos/monumento/4x4/monumento-2.jpg",
@@ -371,7 +368,7 @@ class _BlocoGameState extends State<BlocoGame> {
         }
         break;
       case 'memorial':
-        if (widget.nivel == 3) {
+        if (nivel == 3 || nivel == 0) {
           imagens.addAll([
             "lib/imagens/blocos/memorial/3x3/memorial-1.png",
             "lib/imagens/blocos/memorial/3x3/memorial-2.png",
@@ -383,7 +380,7 @@ class _BlocoGameState extends State<BlocoGame> {
             "lib/imagens/blocos/memorial/3x3/memorial-8.png",
             null,
           ]);
-        } else if (widget.nivel == 4) {
+        } else if (nivel == 4) {
           imagens.addAll([
             "lib/imagens/blocos/memorial/4x4/memorial-1.png",
             "lib/imagens/blocos/memorial/4x4/memorial-2.png",
@@ -412,7 +409,7 @@ class _BlocoGameState extends State<BlocoGame> {
   void inserirImagens() {
     switch (imagemQuebraCabeca) {
       case 'relogio':
-        if (widget.nivel == 3) {
+        if (nivel == 3) {
           _imagens[0] = "lib/imagens/blocos/relogio/3x3/relogio-1.jpg";
           _imagens[1] = "lib/imagens/blocos/relogio/3x3/relogio-2.jpg";
           _imagens[2] = "lib/imagens/blocos/relogio/3x3/relogio-3.jpg";
@@ -422,7 +419,7 @@ class _BlocoGameState extends State<BlocoGame> {
           _imagens[6] = "lib/imagens/blocos/relogio/3x3/relogio-7.jpg";
           _imagens[7] = "lib/imagens/blocos/relogio/3x3/relogio-8.jpg";
           _imagens[8] = null;
-        } else if (widget.nivel == 4) {
+        } else if (nivel == 4) {
           _imagens[0] = "lib/imagens/blocos/relogio/4x4/relogio-1.jpg";
           _imagens[1] = "lib/imagens/blocos/relogio/4x4/relogio-2.jpg";
           _imagens[2] = "lib/imagens/blocos/relogio/4x4/relogio-3.jpg";
@@ -442,7 +439,7 @@ class _BlocoGameState extends State<BlocoGame> {
         }
         break;
       case 'monumento':
-        if (widget.nivel == 3) {
+        if (nivel == 3) {
           _imagens[0] = "lib/imagens/blocos/monumento/3x3/monumento-1.jpg";
           _imagens[1] = "lib/imagens/blocos/monumento/3x3/monumento-2.jpg";
           _imagens[2] = "lib/imagens/blocos/monumento/3x3/monumento-3.jpg";
@@ -452,7 +449,7 @@ class _BlocoGameState extends State<BlocoGame> {
           _imagens[6] = "lib/imagens/blocos/monumento/3x3/monumento-7.jpg";
           _imagens[7] = "lib/imagens/blocos/monumento/3x3/monumento-8.jpg";
           _imagens[8] = null;
-        } else if (widget.nivel == 4) {
+        } else if (nivel == 4) {
           _imagens[0] = "lib/imagens/blocos/monumento/4x4/monumento-1.jpg";
           _imagens[1] = "lib/imagens/blocos/monumento/4x4/monumento-2.jpg";
           _imagens[2] = "lib/imagens/blocos/monumento/4x4/monumento-3.jpg";
@@ -472,7 +469,7 @@ class _BlocoGameState extends State<BlocoGame> {
         }
         break;
       case 'memorial':
-        if (widget.nivel == 3) {
+        if (nivel == 3) {
           _imagens[0] = "lib/imagens/blocos/memorial/3x3/memorial-1.png";
           _imagens[1] = "lib/imagens/blocos/memorial/3x3/memorial-2.png";
           _imagens[2] = "lib/imagens/blocos/memorial/3x3/memorial-3.png";
@@ -482,7 +479,7 @@ class _BlocoGameState extends State<BlocoGame> {
           _imagens[6] = "lib/imagens/blocos/memorial/3x3/memorial-7.png";
           _imagens[7] = "lib/imagens/blocos/memorial/3x3/memorial-8.png";
           _imagens[8] = null;
-        } else if (widget.nivel == 4) {
+        } else if (nivel == 4) {
           _imagens[0] = "lib/imagens/blocos/memorial/4x4/memorial-1.png";
           _imagens[1] = "lib/imagens/blocos/memorial/4x4/memorial-2.png";
           _imagens[2] = "lib/imagens/blocos/memorial/4x4/memorial-3.png";
@@ -508,7 +505,7 @@ class _BlocoGameState extends State<BlocoGame> {
   void initState() {
     super.initState();
     imagemQuebraCabeca = widget.imagemQuebraCabeca;
-    nivel = widget.nivel;
+    nivel == 0 ? 3 : nivel;
     _imagens = carregarImagens();
 
     switch (imagemQuebraCabeca) {
@@ -625,6 +622,9 @@ class _BlocoGameState extends State<BlocoGame> {
   }
 
   getAxis() {
+    if (nivel == 0) {
+      nivel = 3;
+    }
     if (nivel == 3) {
       return 3;
     }
@@ -684,13 +684,12 @@ class _BlocoGameState extends State<BlocoGame> {
                     )
                   ],
                 )),
-            SizedBox(
-              height: 3,
-            ),
             Stack(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(tela.width * 0.04),
+                  padding: EdgeInsets.symmetric(
+                      horizontal: tela.width * 0.04,
+                      vertical: tela.width * 0.02),
                   child: GridView.count(
                     crossAxisCount: getAxis(),
                     childAspectRatio: 1.0,
@@ -713,23 +712,26 @@ class _BlocoGameState extends State<BlocoGame> {
               style: ButtonStyle(
                   backgroundColor: MaterialStatePropertyAll(Color(0xFF3DDBAC))),
             ),
+            SizedBox(
+              height: 3,
+            ),
             Text(
               "Níveis",
               style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Column(
                   children: [
                     GestureDetector(
-                      onTap: mudarNivel(3),
+                      onTap: () => mudarNivel(3),
                       child: Container(
                         width: 50,
                         height: 50,
-                        decoration: BoxDecoration(color: Colors.black),
+                        decoration: BoxDecoration(color: Colors.blue.shade900),
                         alignment: Alignment.center,
                         child: Text(
                           "3x3",
@@ -738,21 +740,22 @@ class _BlocoGameState extends State<BlocoGame> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 50,
-                      height: 3, // altura da linha
-                      color: Colors.green,
-                    ),
+                    if (nivel == 3)
+                      Container(
+                        width: 50,
+                        height: 3, // altura da linha
+                        color: Colors.green,
+                      ),
                   ],
                 ),
                 Column(
                   children: [
                     GestureDetector(
-                      onTap: mudarNivel(4),
+                      onTap: () => mudarNivel(4),
                       child: Container(
                         width: 50,
                         height: 50,
-                        decoration: BoxDecoration(color: Colors.black),
+                        decoration: BoxDecoration(color: Colors.blue.shade900),
                         alignment: Alignment.center,
                         child: Text(
                           "4x4",
@@ -761,11 +764,12 @@ class _BlocoGameState extends State<BlocoGame> {
                         ),
                       ),
                     ),
-                    Container(
-                      width: 50,
-                      height: 2,
-                      color: Colors.green,
-                    ),
+                    if (nivel == 4)
+                      Container(
+                        width: 50,
+                        height: 2,
+                        color: Colors.green,
+                      ),
                   ],
                 ),
               ],

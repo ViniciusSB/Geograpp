@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
               text: TextSpan(
                 children: [
                   TextSpan(
-                    text: 'Criador: ',
+                    text: 'Autor: ',
                     style: TextStyle(
                         color: Colors.black, fontSize: screenWidth * 0.04),
                   ),

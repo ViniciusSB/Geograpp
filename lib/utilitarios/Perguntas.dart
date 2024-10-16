@@ -73,7 +73,7 @@ class Perguntas {
     {
       "q":
           "Qual parque estadual é conhecido pelas dunas alaranjadas e cachoeiras do Tocantins?",
-      "c": "recursos naturais",    
+      "c": "recursos naturais",
       "p1": "Parque Estadual do Cantão",
       "p2": "Parque Estadual do Lajeado",
       "p3": "Parque Estadual do Araguaia",
@@ -82,9 +82,8 @@ class Perguntas {
           "Este parque é uma área de preservação ambiental que abriga uma variedade de paisagens naturais deslumbrantes, incluindo as famosas dunas de areia dourada, formações rochosas, cachoeiras e rios de águas cristalinas. O Jalapão é um destino popular para ecoturismo e aventuras, oferecendo oportunidades para atividades como trekking, banhos em cachoeiras, rapel e observação da fauna e flora locais."
     },
     {
-      "q":
-          "Qual é o principal afluente do Rio Tocantins que nasce no Tocantins?",
-      "c": "hidrografia",    
+      "q": "Qual é o principal afluente do Rio Tocantins?",
+      "c": "hidrografia",
       "p1": "Rio Paranã",
       "p2": "Rio Manoel Alves Grande",
       "p3": "Rio Formoso",
@@ -299,7 +298,8 @@ class Perguntas {
           "O Tocantins possui vastas áreas de terras e pastagens disponíveis, o que facilita a expansão da pecuária e atrai investimentos para o setor."
     },
     {
-      "q": "Qual é uma das principais consequências das queimadas frequentes no Tocantins?",
+      "q":
+          "Qual é uma das principais consequências das queimadas frequentes no Tocantins?",
       "c": "clima e vegetação",
       "p1": "Aumento da umidade do solo",
       "p2": "Má reputação",
@@ -309,7 +309,8 @@ class Perguntas {
           "As queimadas frequentes no Tocantins têm como uma das principais consequências a redução da biodiversidade, pois o fogo destrói habitats naturais e afeta a fauna e a flora local."
     },
     {
-      "q": "Além das causas naturais, qual é uma das principais atividades humanas que contribui para o aumento das queimadas no Tocantins?",
+      "q":
+          "Além das causas naturais, qual é uma das principais atividades humanas que contribui para o aumento das queimadas no Tocantins?",
       "c": "clima e vegetação",
       "p1": "Construção de estradas",
       "p2": "Mineração",
@@ -319,7 +320,8 @@ class Perguntas {
           "A expansão agrícola é uma das principais atividades humanas que contribui para o aumento das queimadas no Tocantins, já que muitas vezes o desmatamento e a limpeza de áreas para cultivo são feitos utilizando fogo."
     },
     {
-      "q": "Durante quais meses do ano as queimadas são mais frequentes no Tocantins?",
+      "q":
+          "Durante quais meses do ano as queimadas são mais frequentes no Tocantins?",
       "c": "clima e vegetação",
       "p1": "Janeiro e Fevereiro",
       "p2": "Março e Abril",

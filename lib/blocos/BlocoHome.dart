@@ -19,7 +19,7 @@ class _BlocoHomeState extends State<BlocoHome> {
       context,
       MaterialPageRoute(
           builder: (context) => BlocoGame(
-                imagemQuebraCabeca: imagem, nivel: 3,
+                imagemQuebraCabeca: imagem
               )),
     );
   }

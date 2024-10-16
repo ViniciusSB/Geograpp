@@ -8,11 +8,14 @@ Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fu
 
 - group_button: utilizado para controlar as alternativas das perguntas
 
-- flutter_svg: utilizado para inserir icones personalizados
+- flutter_native_splash: utilizado para modificar a tela de carregamento inicial ao iniciar o aplicativo pela 1ª vez
+
+- flutter_launcher_icons: utilizado para modificar o ícone do aplicativo
 
 ## Imagens
 
-- Jogo 1: quiz conhecendo o Tocantins
+<details>
+  <summary>Jogo 1: quiz conhecendo o Tocantins</summary>
 
 ![Quiz inicial](imagens-git/quiz-inicial.png)
 
@@ -26,7 +29,10 @@ Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fu
 
 ![Quiz classificação](imagens-git/quiz-classificacao.png)
 
-- Jogo 2: jogo da memória
+</details>
+</p>
+<details>
+    <summary>Jogo 2: jogo da memória</summary>
 
 ![Memoria inicial](imagens-git/memoria.png)
 
@@ -39,3 +45,24 @@ Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fu
 ![Memoria jogo](imagens-git/memoria-jogo.png)
 
 ![Memoria sucesso](imagens-git/memoria-sucesso.png)
+
+</details>
+
+<details>
+    <summary>Jogo 3: blocos deslizantes</summary>
+
+![Blocos tela inicial](imagens-git/blocos-inicial.png)
+
+![Blocos metadados](imagens-git/blocos-sobre.png)
+
+![Blocos como jogar](imagens-git/blocos-como-jogar.png)
+
+![Blocos jogo](imagens-git/blocos-jogo-inicial.png)
+
+![Blocos jogo embaralhado](imagens-git/blocos-embaralhado.png)
+
+![Blocos finalizado](imagens-git/blocos-finalizado.png)
+
+</details>
+
+

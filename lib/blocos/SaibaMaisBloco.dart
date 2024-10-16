@@ -58,7 +58,7 @@ class _SaibaMaisBlocoState extends State<SaibaMaisBloco> {
                     ),
                     TextSpan(
                       text:
-                          "se trata de um jogo de quebra-cabeças deslizantes, o objetivo é formar a imagem completa do ponto turístico escolhido. Cada imagem contem 8 divisões e um espaço livre que permite a organização dos blocos próximos, a partir do primeiro movimento o jogo cronometra o tempo e a quantidade total de movimentos. Ao finalizar o jogo uma curiosidade sobre o ponto turístico selecionado será exibida.",
+                          "se trata de um jogo de quebra-cabeças deslizantes, o objetivo é formar a imagem completa do ponto turístico escolhido. Cada imagem contem de 8 a 16 fragmentos de imagens dependendo do nível selecionado, entre elas existe um espaço livre que permite a organização dos blocos próximos, o objetivo é formar a imagem original em sua sequencia correta. A partir do primeiro movimento o jogo cronometra o tempo e a quantidade total de movimentos. Ao finalizar o jogo uma curiosidade sobre o ponto turístico selecionado será exibida.",
                     ),
                   ],
                 ),

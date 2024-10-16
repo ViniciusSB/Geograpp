@@ -1,0 +1,223 @@
+name: geograpp
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  animated_text_kit: ^4.2.2
+  group_button: ^5.3.4
+  flutter_native_splash: ^2.4.0
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^3.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: lib/imagens/gradiente.png
+  fullscreen: true
+  android_gravity: fill
+
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+  assets:
+    - lib/imagens/metadados.jpeg
+    - lib/imagens/unitins.png
+    - lib/imagens/bandeira-do-tocantins.png
+    - lib/imagens/jogos.jpeg
+    - lib/imagens/como-jogar.jpeg
+    - lib/imagens/gradiente.png
+
+    #Icon
+    - lib/imagens/question.png
+    - lib/imagens/puzzle.png
+    - lib/imagens/brain.png
+
+    #Quiz
+    - lib/imagens/quiz/logo.png
+    - lib/imagens/quiz/arara.jpeg
+    - lib/imagens/quiz/professor-explicando.jpeg
+    - lib/imagens/quiz/turista.jpeg
+    - lib/imagens/quiz/explorador.jpeg
+    - lib/imagens/quiz/nativo.jpeg
+    - lib/imagens/quiz/expert.jpeg
+    - lib/imagens/quiz/quiz.jpeg
+    - lib/imagens/quiz/sobre.jpeg
+    - lib/imagens/quiz/comoJogar.jpeg
+    #Memoria
+    - lib/imagens/memoria/bandeira-tocantins.jpg
+    - lib/imagens/memoria/1.jpg
+    - lib/imagens/memoria/2.jpg
+    - lib/imagens/memoria/3.jpg
+    - lib/imagens/memoria/4.jpg
+    - lib/imagens/memoria/5.jpg
+    - lib/imagens/memoria/6.jpg
+    - lib/imagens/memoria/7.jpg
+    - lib/imagens/memoria/8.jpg
+    - lib/imagens/memoria/indigenas-logo.jpeg
+
+    #Blocos Deslizantes
+    - lib/imagens/blocos/blocos-logo.jpeg
+
+    - lib/imagens/blocos/monumento/monumento.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-1.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-2.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-3.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-4.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-5.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-6.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-7.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-8.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-9.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-10.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-11.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-12.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-13.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-14.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-15.jpg
+    - lib/imagens/blocos/monumento/4x4/monumento-16.jpg
+
+    - lib/imagens/blocos/monumento/monumento.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-1.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-2.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-3.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-4.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-5.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-6.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-7.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-8.jpg
+    - lib/imagens/blocos/monumento/3x3/monumento-9.jpg
+
+    - lib/imagens/blocos/relogio/relogio.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-1.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-2.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-3.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-4.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-5.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-6.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-7.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-8.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-9.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-10.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-11.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-12.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-13.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-14.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-15.jpg
+    - lib/imagens/blocos/relogio/4x4/relogio-16.jpg
+
+    - lib/imagens/blocos/relogio/3x3/relogio-1.jpg
+    - lib/imagens/blocos/relogio/3x3/relogio-2.jpg
+    - lib/imagens/blocos/relogio/3x3/relogio-3.jpg
+    - lib/imagens/blocos/relogio/3x3/relogio-4.jpg
+    - lib/imagens/blocos/relogio/3x3/relogio-5.jpg
+    - lib/imagens/blocos/relogio/3x3/relogio-6.jpg
+    - lib/imagens/blocos/relogio/3x3/relogio-7.jpg
+    - lib/imagens/blocos/relogio/3x3/relogio-8.jpg
+    - lib/imagens/blocos/relogio/3x3/relogio-9.jpg
+
+    - lib/imagens/blocos/memorial/memorial.png
+    - lib/imagens/blocos/memorial/4x4/memorial-1.png
+    - lib/imagens/blocos/memorial/4x4/memorial-2.png
+    - lib/imagens/blocos/memorial/4x4/memorial-3.png
+    - lib/imagens/blocos/memorial/4x4/memorial-4.png
+    - lib/imagens/blocos/memorial/4x4/memorial-5.png
+    - lib/imagens/blocos/memorial/4x4/memorial-6.png
+    - lib/imagens/blocos/memorial/4x4/memorial-7.png
+    - lib/imagens/blocos/memorial/4x4/memorial-8.png
+    - lib/imagens/blocos/memorial/4x4/memorial-9.png
+    - lib/imagens/blocos/memorial/4x4/memorial-10.png
+    - lib/imagens/blocos/memorial/4x4/memorial-11.png
+    - lib/imagens/blocos/memorial/4x4/memorial-12.png
+    - lib/imagens/blocos/memorial/4x4/memorial-13.png
+    - lib/imagens/blocos/memorial/4x4/memorial-14.png
+    - lib/imagens/blocos/memorial/4x4/memorial-15.png
+    - lib/imagens/blocos/memorial/4x4/memorial-16.png
+
+    - lib/imagens/blocos/memorial/3x3/memorial-1.png
+    - lib/imagens/blocos/memorial/3x3/memorial-2.png
+    - lib/imagens/blocos/memorial/3x3/memorial-3.png
+    - lib/imagens/blocos/memorial/3x3/memorial-4.png
+    - lib/imagens/blocos/memorial/3x3/memorial-5.png
+    - lib/imagens/blocos/memorial/3x3/memorial-6.png
+    - lib/imagens/blocos/memorial/3x3/memorial-7.png
+    - lib/imagens/blocos/memorial/3x3/memorial-8.png
+    - lib/imagens/blocos/memorial/3x3/memorial-9.png
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

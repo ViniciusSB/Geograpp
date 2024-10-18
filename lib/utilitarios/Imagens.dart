@@ -20,6 +20,18 @@ class Imagens {
   static const String expert = "lib/imagens/quiz/expert.jpeg";
   static const String sobre = "lib/imagens/quiz/sobre.jpeg";
   static const String comoJogar = "lib/imagens/quiz/comoJogar.jpeg";
+  static const String agronegocio = "lib/imagens/quiz/agronegocio.jpeg";
+  static const String recursosNaturais =
+      "lib/imagens/quiz/recursosNaturais.jpeg";
+  static const String arqueologiaGeologia =
+      "lib/imagens/quiz/arqueologiaGeologia.jpeg";
+  static const String pecuaria = "lib/imagens/quiz/pecuaria.jpeg";
+  static const String climaVegetacao = "lib/imagens/quiz/climaVegetacao.jpeg";
+  static const String comunidadesTradicionais = "lib/imagens/quiz/comunidadesTradicionais.jpeg";
+  static const String turismo = "lib/imagens/quiz/turismo.jpeg";
+  static const String relevo = "lib/imagens/quiz/relevo.jpeg";
+  static const String hidrografia = "lib/imagens/quiz/hidrografia.jpeg";
+  
 
   //Memoria
   static const String bandeiraTocantins =
@@ -33,6 +45,14 @@ class Imagens {
   static const String xambioa = "lib/imagens/memoria/7.jpg"; //Xambioa
   static const String xerente = "lib/imagens/memoria/8.jpg"; //Xerente
   static const String indigenasLogo = "lib/imagens/memoria/indigenas-logo.jpeg";
+  static const String magoOla = "lib/imagens/memoria/magico-ola.gif";
+  static const String magoNeutro = "lib/imagens/memoria/magico-neutro.gif";
+  static const String magoVcTaAi = "lib/imagens/memoria/magico-vc-ta-ai.gif";
+  static const String magoPreguica = "lib/imagens/memoria/magico-preguica.gif";
+  static const String magoOps = "lib/imagens/memoria/magico-ops.gif";
+  static const String magoMuitoBem = "lib/imagens/memoria/magico-muito-bem.gif";
+  static const String magoBoa = "lib/imagens/memoria/magico-boa.gif";
+  static const String magoParabens = "lib/imagens/memoria/magico-parabens.gif";
 
   //Blocos Deslizantes
   static const String blocosLogo = "lib/imagens/blocos/blocos-logo.jpeg";

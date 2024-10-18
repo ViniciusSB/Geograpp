@@ -1,11 +1,11 @@
 // ignore_for_file: prefer_const_constructors, sort_child_properties_last
 
+import "dart:math";
 import 'dart:async';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
-import 'package:flutter/widgets.dart';
+import "package:confetti/confetti.dart";
 import 'package:geograpp/utilitarios/Textos.dart';
 
 class BlocoGame extends StatefulWidget {
@@ -21,12 +21,41 @@ class _BlocoGameState extends State<BlocoGame> {
   late List<String?> _imagens = [];
   late int _segundosPassados = 0;
   int nivel = 0;
+  late ConfettiController _confettiController;
   late Timer? _timer = null;
   bool jogoEmbaralhado = false;
   int _celulaVazia = 99;
   bool jogoCompleto = false;
   int movimentos = 0;
   late List<String> curiosidades = [];
+
+  @override
+  void initState() {
+    super.initState();
+    imagemQuebraCabeca = widget.imagemQuebraCabeca;
+    nivel == 0 ? 3 : nivel;
+    _imagens = carregarImagens();
+    _confettiController =
+        ConfettiController(duration: const Duration(seconds: 1));
+
+    switch (imagemQuebraCabeca) {
+      case 'relogio':
+        curiosidades.add(Textos.relogio1);
+        curiosidades.add(Textos.relogio2);
+        curiosidades.add(Textos.relogio3);
+        break;
+      case 'monumento':
+        curiosidades.add(Textos.monumento1);
+        curiosidades.add(Textos.monumento2);
+        curiosidades.add(Textos.monumento3);
+        break;
+      case 'memorial':
+        curiosidades.add(Textos.memorial1);
+        curiosidades.add(Textos.memorial2);
+        curiosidades.add(Textos.memorial3);
+        break;
+    }
+  }
 
   List<GestureDetector> gerarGestures(double tamanho) {
     List<GestureDetector> lista = [];
@@ -258,6 +287,7 @@ class _BlocoGameState extends State<BlocoGame> {
       Future.delayed(const Duration(milliseconds: 1500), () {
         setState(() {
           jogoCompleto = condicao;
+          dispararConfete();
         });
       });
       curiosidades.shuffle();
@@ -501,30 +531,8 @@ class _BlocoGameState extends State<BlocoGame> {
     }
   }
 
-  @override
-  void initState() {
-    super.initState();
-    imagemQuebraCabeca = widget.imagemQuebraCabeca;
-    nivel == 0 ? 3 : nivel;
-    _imagens = carregarImagens();
-
-    switch (imagemQuebraCabeca) {
-      case 'relogio':
-        curiosidades.add(Textos.relogio1);
-        curiosidades.add(Textos.relogio2);
-        curiosidades.add(Textos.relogio3);
-        break;
-      case 'monumento':
-        curiosidades.add(Textos.monumento1);
-        curiosidades.add(Textos.monumento2);
-        curiosidades.add(Textos.monumento3);
-        break;
-      case 'memorial':
-        curiosidades.add(Textos.memorial1);
-        curiosidades.add(Textos.memorial2);
-        curiosidades.add(Textos.memorial3);
-        break;
-    }
+  void dispararConfete() {
+    _confettiController.play();
   }
 
   @override
@@ -532,6 +540,7 @@ class _BlocoGameState extends State<BlocoGame> {
     if (_timer != null && _timer!.isActive) {
       _timer!.cancel();
     }
+    _confettiController.dispose();
     super.dispose();
   }
 
@@ -570,6 +579,7 @@ class _BlocoGameState extends State<BlocoGame> {
                       ),
                       onPressed: () {
                         setState(() {
+                          _confettiController.stop();
                           jogoCompleto = false;
                           jogoEmbaralhado = false;
                         });
@@ -697,7 +707,18 @@ class _BlocoGameState extends State<BlocoGame> {
                     shrinkWrap: true,
                   ),
                 ),
-                if (jogoCompleto) _abrirModal(tela.height, tela.width)
+                if (jogoCompleto) _abrirModal(tela.height, tela.width),
+                Align(
+                  alignment: Alignment.topCenter, // Posição do confete
+                  child: ConfettiWidget(
+                    confettiController: _confettiController,
+                    blastDirection: -pi / 2, // Explodir para cima
+                    emissionFrequency: 0.05, // Frequência de emissão
+                    numberOfParticles: 50,
+                    gravity: 0.1, // Gravidade para confetes caírem lentamente
+                    shouldLoop: false,
+                  ),
+                ),
               ],
             ),
             SizedBox(

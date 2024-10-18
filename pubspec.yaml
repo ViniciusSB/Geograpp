@@ -34,7 +34,9 @@ dependencies:
   group_button: ^5.3.4
   flutter_native_splash: ^2.4.0
   flutter_launcher_icons: "^0.13.1"
-
+  audioplayers: ^6.1.0
+  confetti: ^0.8.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -85,6 +87,10 @@ flutter:
     - lib/imagens/puzzle.png
     - lib/imagens/brain.png
 
+    #Som
+    - assets/audio/certa-resposta.mp3
+    - assets/audio/resposta-errada.mp3
+
     #Quiz
     - lib/imagens/quiz/logo.png
     - lib/imagens/quiz/arara.jpeg
@@ -96,6 +102,16 @@ flutter:
     - lib/imagens/quiz/quiz.jpeg
     - lib/imagens/quiz/sobre.jpeg
     - lib/imagens/quiz/comoJogar.jpeg
+    - lib/imagens/quiz/agronegocio.jpeg
+    - lib/imagens/quiz/recursosNaturais.jpeg
+    - lib/imagens/quiz/arqueologiaGeologia.jpeg
+    - lib/imagens/quiz/pecuaria.jpeg
+    - lib/imagens/quiz/climaVegetacao.jpeg
+    - lib/imagens/quiz/comunidadesTradicionais.jpeg
+    - lib/imagens/quiz/turismo.jpeg
+    - lib/imagens/quiz/relevo.jpeg
+    - lib/imagens/quiz/hidrografia.jpeg
+
     #Memoria
     - lib/imagens/memoria/bandeira-tocantins.jpg
     - lib/imagens/memoria/1.jpg
@@ -107,6 +123,14 @@ flutter:
     - lib/imagens/memoria/7.jpg
     - lib/imagens/memoria/8.jpg
     - lib/imagens/memoria/indigenas-logo.jpeg
+    - lib/imagens/memoria/magico-boa.gif
+    - lib/imagens/memoria/magico-muito-bem.gif
+    - lib/imagens/memoria/magico-neutro.gif
+    - lib/imagens/memoria/magico-ola.gif
+    - lib/imagens/memoria/magico-ops.gif
+    - lib/imagens/memoria/magico-parabens.gif
+    - lib/imagens/memoria/magico-preguica.gif
+    - lib/imagens/memoria/magico-vc-ta-ai.gif
 
     #Blocos Deslizantes
     - lib/imagens/blocos/blocos-logo.jpeg

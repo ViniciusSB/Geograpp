@@ -1,11 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import "dart:math";
+import 'dart:async';
 
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter/widgets.dart";
+import "package:confetti/confetti.dart";
 import "package:geograpp/utilitarios/Imagens.dart";
+import 'package:audioplayers/audioplayers.dart';
+import "package:geograpp/utilitarios/Sons.dart";
 
 class Memoria extends StatefulWidget {
   final String dificuldade;
@@ -20,24 +24,118 @@ class Memoria extends StatefulWidget {
 class _MemoriaState extends State<Memoria> {
   List<int> _numeros = [];
   late String dificuldade;
+  late int _segundosPassados = 0;
+  late Timer? _timer = null;
+  late String _imagemMago = "";
   late int qtdCartas;
+  late ConfettiController _confettiController;
   late List<bool> _imagemEscondida;
   late List<bool> _match;
   int tentativas = 0;
   int ultimoIndiceAberto = 99;
+  final AudioPlayer _audioPlayer = AudioPlayer();
 
   @override
   void initState() {
     super.initState();
     dificuldade = widget.dificuldade;
+    _confettiController =
+        ConfettiController(duration: const Duration(seconds: 1));
     qtdCartas = widget.qtdCartas;
     _numeros = gerarValores(qtdCartas);
     _imagemEscondida = List.filled(qtdCartas, true);
     _match = List.filled(qtdCartas, false);
+    _imagemMago = Imagens.magoOla;
+    _iniciarCronometro();
+    controlarImagemMago("ola");
   }
 
   bool _jogoCompleto = false;
   bool _fechandoImagensAutomaticamente = false;
+
+  void controlarImagemMago(String palavra) {
+    // Palavra a = acertei, e = errei, g = ganhei, n = neutro
+    Random r = Random();
+    int numeroAleatorio;
+    setState(() {
+      switch (palavra) {
+        case "a":
+          numeroAleatorio = r.nextInt(2);
+          if (numeroAleatorio == 0) {
+            _imagemMago = Imagens.magoMuitoBem;
+            _iniciarCronometro();
+          } else {
+            _imagemMago = Imagens.magoBoa;
+            _iniciarCronometro();
+          }
+          break;
+        case "e":
+          _imagemMago = Imagens.magoOps;
+          _iniciarCronometro();
+          break;
+        case "g":
+          _imagemMago = Imagens.magoParabens;
+          _iniciarCronometro();
+          break;
+        case "ola":
+          _iniciarCronometro();
+          _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+            if (_segundosPassados == 4) {
+              _imagemMago = Imagens.magoNeutro;
+            }
+          });
+          break;
+      }
+    });
+  }
+
+  void _iniciarCronometro() {
+    if (_timer != null && _timer!.isActive) {
+      _timer!.cancel();
+    }
+
+    _segundosPassados = 0;
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (mounted) {
+        setState(() {
+          _segundosPassados++;
+          //Img do mago quando alguem esta afk
+          if (_segundosPassados > 16) {
+            if (_imagemMago != Imagens.magoVcTaAi &&
+                _imagemMago != Imagens.magoPreguica &&
+                _imagemMago != Imagens.magoParabens) {
+              _imagemMago = Random().nextBool()
+                  ? Imagens.magoPreguica
+                  : Imagens.magoVcTaAi;
+            }
+          }
+        });
+      }
+    });
+  }
+
+  void dispararConfete() {
+    _confettiController.play();
+  }
+
+  @override
+  void dispose() {
+    if (_timer != null && _timer!.isActive) {
+      _timer!.cancel();
+    }
+    _confettiController.dispose();
+    super.dispose();
+  }
+
+  void _certaRespostaSom() async {
+    await _audioPlayer
+        .play(AssetSource(Sons.certo)); 
+  }
+
+  void _respostaErradaSom() async {
+    await _audioPlayer
+        .play(AssetSource(Sons.errado)); 
+  }
 
   //Gerar valores aleatorios para a combinação de imagens do jogo da memoria
   List<int> gerarValores(int qtdCartas) {
@@ -102,8 +200,11 @@ class _MemoriaState extends State<Memoria> {
 
                 if (valor1 == valor2) {
                   tentativas++;
+                  //att a img do mago
+                  controlarImagemMago("a");
                   _match[indicesAbertos[0]] = !_match[indicesAbertos[0]];
                   _match[indicesAbertos[1]] = !_match[indicesAbertos[1]];
+                  _certaRespostaSom();
                 }
               }
 
@@ -117,6 +218,9 @@ class _MemoriaState extends State<Memoria> {
               if (par && indicesAbertos.length >= 2) {
                 tentativas++;
                 _fechandoImagensAutomaticamente = true;
+                //att a imagem do mago
+                controlarImagemMago("e");
+                _respostaErradaSom();
                 Future.delayed(const Duration(milliseconds: 1000), () {
                   setState(() {
                     _imagemEscondida[indicesAbertos[0]] =
@@ -130,11 +234,17 @@ class _MemoriaState extends State<Memoria> {
               int qtdMatchs =
                   _match.where((element) => element == true).toList().length;
               if (dificuldade == "facil" && qtdMatchs == 6) {
+                controlarImagemMago("g");
                 _jogoCompleto = !_jogoCompleto;
+                dispararConfete();
               } else if (dificuldade == "medio" && qtdMatchs == 12) {
+                controlarImagemMago("g");
                 _jogoCompleto = !_jogoCompleto;
+                dispararConfete();
               } else if (dificuldade == "dificil" && qtdMatchs == 16) {
+                controlarImagemMago("g");
                 _jogoCompleto = !_jogoCompleto;
+                dispararConfete();
               }
             });
           }
@@ -196,6 +306,9 @@ class _MemoriaState extends State<Memoria> {
                       _imagemEscondida.fillRange(
                           0, _imagemEscondida.length, true);
                       _match.fillRange(0, _match.length, false);
+                      _imagemMago = Imagens.magoNeutro;
+                      _confettiController.stop;
+                      _iniciarCronometro();
                     });
                   },
                   child: const Text(
@@ -261,13 +374,23 @@ class _MemoriaState extends State<Memoria> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Padding(
-              padding: EdgeInsets.only(top: screenWidth * 0.04),
-              child: Text(
-                "$tentativas",
-                style: TextStyle(
-                    color: Colors.white, fontSize: screenWidth * 0.06),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: screenWidth * 0.04),
+                  child: Text(
+                    "$tentativas",
+                    style: TextStyle(
+                        color: Colors.white, fontSize: screenWidth * 0.06),
+                  ),
+                ),
+                Image.asset(
+                  _imagemMago,
+                  height: screenWidth * 0.25,
+                  width: screenWidth * 0.25,
+                )
+              ],
             ),
             Expanded(
               child: Stack(
@@ -282,6 +405,17 @@ class _MemoriaState extends State<Memoria> {
                   ),
                   if (_jogoCompleto) // Mostrar o modal apenas se o jogo estiver completo
                     _abrirModal(screenWidth),
+                  Align(
+                    alignment: Alignment.topCenter, // Posição do confete
+                    child: ConfettiWidget(
+                      confettiController: _confettiController,
+                      blastDirection: -pi / 2, // Explodir para cima
+                      emissionFrequency: 0.05, // Frequência de emissão
+                      numberOfParticles: 50,
+                      gravity: 0.1, // Gravidade para confetes caírem lentamente
+                      shouldLoop: false,
+                    ),
+                  ),
                 ],
               ),
             ),

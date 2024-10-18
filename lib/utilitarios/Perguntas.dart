@@ -22,7 +22,7 @@ class Perguntas {
     },
     {
       "q": "Quantas etnias indígenas estão presentes no Tocantins?",
-      "c": "cultura",
+      "c": "comunidades tradicionais",
       "p1": "12",
       "p2": "3",
       "p3": "5",
@@ -42,7 +42,7 @@ class Perguntas {
     },
     {
       "q": "Qual é o tipo de clima predominante no Tocantins?",
-      "c": "clima",
+      "c": "clima e vegetação",
       "p1": "Semiárido",
       "p2": "Subtropical",
       "p3": "Equatorial",
@@ -62,7 +62,7 @@ class Perguntas {
     },
     {
       "q": "Qual é o bioma predominante no Tocantins?",
-      "c": "vegetação",
+      "c": "clima e vegetação",
       "p1": "Amazônia",
       "p2": "Caatinga",
       "p3": "Mata Atlântica",
@@ -94,7 +94,7 @@ class Perguntas {
     {
       "q":
           "Em qual estação do ano o Tocantins registra as maiores temperaturas?",
-      "c": "clima",
+      "c": "clima e vegetação",
       "p1": "Outono",
       "p2": "Verão",
       "p3": "Primavera",
@@ -145,7 +145,7 @@ class Perguntas {
     },
     {
       "q": "Qual é a estação do ano mais chuvosa no Tocantins?",
-      "c": "clima",
+      "c": "clima e vegetação",
       "p1": "Outono",
       "p2": "Inverno",
       "p3": "Primavera",

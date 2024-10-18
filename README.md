@@ -1,4 +1,4 @@
-# geograpp
+# Geograpp
 
 Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fundamental sobre o tocantins. 
 
@@ -12,10 +12,16 @@ Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fu
 
 - flutter_launcher_icons: utilizado para modificar o ícone do aplicativo
 
+- audioplayers: inserir e manipular sons no aplicativo
+
+- confetti: efeito de confetes sendo disparados
+
 ## Imagens
 
+
 <details>
-  <summary>Jogo 1: quiz conhecendo o Tocantins</summary>
+
+<summary>Jogo 1: quiz conhecendo o Tocantins</summary>
 
 ![Quiz inicial](imagens-git/quiz-inicial.png)
 
@@ -32,7 +38,7 @@ Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fu
 </details>
 </p>
 <details>
-    <summary>Jogo 2: jogo da memória</summary>
+<summary>Jogo 2: jogo da memória</summary>
 
 ![Memoria inicial](imagens-git/memoria.png)
 
@@ -47,9 +53,9 @@ Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fu
 ![Memoria sucesso](imagens-git/memoria-sucesso.png)
 
 </details>
-
+</p>
 <details>
-    <summary>Jogo 3: blocos deslizantes</summary>
+<summary>Jogo 3: blocos deslizantes</summary>
 
 ![Blocos tela inicial](imagens-git/blocos-inicial.png)
 

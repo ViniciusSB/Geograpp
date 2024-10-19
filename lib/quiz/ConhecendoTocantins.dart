@@ -95,7 +95,7 @@ class ConhecendoTocantinsState extends State<ConhecendoTocantins> {
                   ],
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF3DDBAC),
+                  backgroundColor: Color(0xFF6cabb0),
                   padding: EdgeInsets.symmetric(
                     vertical: screenWidth * 0.02,
                     horizontal: screenWidth * 0.04,
@@ -120,7 +120,7 @@ class ConhecendoTocantinsState extends State<ConhecendoTocantins> {
                   ],
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF3DDBAC),
+                  backgroundColor: Color(0xFF6cabb0),
                 ),
               ),
             ],

@@ -25,7 +25,7 @@ class _MetadadosJogoMemoriaState extends State<MetadadosJogoMemoria> {
         ),
         iconTheme: const IconThemeData(color: Colors.white),
         centerTitle: true,
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xFF6081DB),
       ),
       body: SingleChildScrollView(
         child: Container(

@@ -654,7 +654,7 @@ class _BlocoGameState extends State<BlocoGame> {
           style: const TextStyle(
               fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
-        backgroundColor: Colors.green,
+        backgroundColor: Color(0xFF6081DB),
         centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.white),
       ),

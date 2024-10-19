@@ -1,8 +1,11 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
 import 'package:geograpp/utilitarios/Imagens.dart';
 import 'package:geograpp/utilitarios/Textos.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SobreIndigenas extends StatefulWidget {
   final int numeroImagem;
@@ -15,12 +18,20 @@ class SobreIndigenas extends StatefulWidget {
 class _SobreIndigenasState extends State<SobreIndigenas> {
   late int numeroImagem;
   late HashMap dados;
+  late Uri _url;
+  late String urlString;
 
   @override
   void initState() {
     super.initState();
     numeroImagem = widget.numeroImagem;
     dados = converterNumero(numeroImagem);
+  }
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
 
   @override
@@ -35,7 +46,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
               fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Colors.green,
+        backgroundColor: const Color(0xFF6081DB),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
@@ -57,6 +68,16 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
                 dados["texto"],
                 textAlign: TextAlign.justify,
                 style: TextStyle(fontSize: screenWidth * 0.035),
+              ),
+              InkWell(
+                onTap: _launchUrl,
+                child: Text(
+                  urlString,
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -98,41 +119,58 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Apinajé";
         dados["texto"] = Textos.textoApinaje;
         dados["caminho"] = Imagens.apinaje;
+        urlString = Textos.urlApinaje;
+        _url = Uri.parse(Textos.urlApinaje);
+
         break;
       case 2:
         dados["nome"] = "Avá Canoeiro";
         dados["texto"] = Textos.textoAvaCanoeiro;
         dados["caminho"] = Imagens.avaCanoeiro;
+        urlString = Textos.urlAvaCanoeiro;
+        _url = Uri.parse(Textos.urlAvaCanoeiro);
         break;
       case 3:
         dados["nome"] = "Javaé";
         dados["texto"] = Textos.textoJavae;
         dados["caminho"] = Imagens.javae;
+        urlString = Textos.urlJavae;
+        _url = Uri.parse(Textos.urlJavae);
         break;
       case 4:
         dados["nome"] = "Karajá";
         dados["texto"] = Textos.textoKaraja;
         dados["caminho"] = Imagens.karaja;
+        urlString = Textos.urlKaraja;
+        _url = Uri.parse(Textos.urlKaraja);
         break;
       case 5:
         dados["nome"] = "Krahô";
         dados["texto"] = Textos.textoKraho;
         dados["caminho"] = Imagens.kraho;
+        urlString = Textos.urlKraho;
+        _url = Uri.parse(Textos.urlKraho);
         break;
       case 6:
         dados["nome"] = "Krahô Kanela";
         dados["texto"] = Textos.textoKrahoKanela;
         dados["caminho"] = Imagens.krahoKanela;
+        urlString = Textos.urlKrahoKanela;
+        _url = Uri.parse(Textos.urlKrahoKanela);
         break;
       case 7:
         dados["nome"] = "Xambioá";
         dados["texto"] = Textos.textoXambioa;
         dados["caminho"] = Imagens.xambioa;
+        urlString = Textos.urlXambioa;
+        _url = Uri.parse(Textos.urlXambioa);
         break;
       case 8:
         dados["nome"] = "Xerente";
         dados["texto"] = Textos.textoXerente;
         dados["caminho"] = Imagens.xerente;
+        urlString = Textos.urlXerente;
+        _url = Uri.parse(Textos.urlXerente);
         break;
     }
     return dados;

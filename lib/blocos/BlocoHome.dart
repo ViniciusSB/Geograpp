@@ -18,9 +18,7 @@ class _BlocoHomeState extends State<BlocoHome> {
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => BlocoGame(
-                imagemQuebraCabeca: imagem
-              )),
+          builder: (context) => BlocoGame(imagemQuebraCabeca: imagem)),
     );
   }
 
@@ -149,7 +147,7 @@ class _BlocoHomeState extends State<BlocoHome> {
                       ],
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF3DDBAC),
+                      backgroundColor: Color(0xFF6cabb0),
                     ),
                   ),
                   ElevatedButton(
@@ -170,7 +168,7 @@ class _BlocoHomeState extends State<BlocoHome> {
                       ],
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF3DDBAC),
+                      backgroundColor: Color(0xFF6cabb0),
                     ),
                   ),
                 ],

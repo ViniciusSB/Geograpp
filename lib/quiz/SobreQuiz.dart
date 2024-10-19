@@ -24,7 +24,7 @@ class _SobreQuizState extends State<SobreQuiz> {
               fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Color(0xFF866E68),
+        backgroundColor: Color(0xFF6081DB),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(

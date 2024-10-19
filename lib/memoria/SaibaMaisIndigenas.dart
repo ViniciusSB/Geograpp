@@ -31,7 +31,7 @@ class _SaibaMaisIndigenasState extends State<SaibaMaisIndigenas> {
               fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white),
         ),
         centerTitle: true,
-        backgroundColor: Colors.green,
+        backgroundColor: const Color(0xFF6081DB),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(

@@ -16,6 +16,8 @@ Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fu
 
 - confetti: efeito de confetes sendo disparados
 
+- url_laucher: utilizado para abrir endereços url
+
 ## Imagens
 
 

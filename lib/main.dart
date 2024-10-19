@@ -7,4 +7,3 @@ void main(List<String> args) {
     debugShowCheckedModeBanner: false,
   ));
 }
-  

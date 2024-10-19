@@ -131,6 +131,10 @@ flutter:
     - lib/imagens/memoria/magico-parabens.gif
     - lib/imagens/memoria/magico-preguica.gif
     - lib/imagens/memoria/magico-vc-ta-ai.gif
+    - lib/imagens/memoria/indigenas-artesanato.jpeg
+    - lib/imagens/memoria/indigenas-colheita.jpeg
+    - lib/imagens/memoria/indigenas-navegando.jpeg
+    - lib/imagens/memoria/indigenas-pinturas-corporais.jpeg
 
     #Blocos Deslizantes
     - lib/imagens/blocos/blocos-logo.jpeg

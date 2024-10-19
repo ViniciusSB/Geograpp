@@ -10,6 +10,7 @@ import "package:confetti/confetti.dart";
 import "package:geograpp/utilitarios/Imagens.dart";
 import 'package:audioplayers/audioplayers.dart';
 import "package:geograpp/utilitarios/Sons.dart";
+import "package:geograpp/utilitarios/Textos.dart";
 
 class Memoria extends StatefulWidget {
   final String dificuldade;
@@ -31,6 +32,8 @@ class _MemoriaState extends State<Memoria> {
   late ConfettiController _confettiController;
   late List<bool> _imagemEscondida;
   late List<bool> _match;
+  late String _imagemVitoria;
+  late String _curiosidadeVitoria;
   int tentativas = 0;
   int ultimoIndiceAberto = 99;
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -128,13 +131,34 @@ class _MemoriaState extends State<Memoria> {
   }
 
   void _certaRespostaSom() async {
-    await _audioPlayer
-        .play(AssetSource(Sons.certo)); 
+    await _audioPlayer.play(AssetSource(Sons.certo));
   }
 
   void _respostaErradaSom() async {
-    await _audioPlayer
-        .play(AssetSource(Sons.errado)); 
+    await _audioPlayer.play(AssetSource(Sons.errado));
+  }
+
+  void gerarInformacoesVitoria() {
+    Random r = Random();
+    int num = r.nextInt(4);
+    switch (num) {
+      case 0:
+        _curiosidadeVitoria = Textos.indigenasArtesanato;
+        _imagemVitoria = Imagens.indigenasArtesanato;
+        break;
+      case 1:
+        _curiosidadeVitoria = Textos.indigenasColheita;
+        _imagemVitoria = Imagens.indigenasColheita;
+        break;
+      case 2:
+        _curiosidadeVitoria = Textos.indigenasNavegando;
+        _imagemVitoria = Imagens.indigenasNavegando;
+        break;
+      case 3:
+        _curiosidadeVitoria = Textos.indigenasPinturasCorporais;
+        _imagemVitoria = Imagens.indigenasPinturasCorporais;
+        break;
+    }
   }
 
   //Gerar valores aleatorios para a combinação de imagens do jogo da memoria
@@ -236,14 +260,17 @@ class _MemoriaState extends State<Memoria> {
               if (dificuldade == "facil" && qtdMatchs == 6) {
                 controlarImagemMago("g");
                 _jogoCompleto = !_jogoCompleto;
+                gerarInformacoesVitoria();
                 dispararConfete();
               } else if (dificuldade == "medio" && qtdMatchs == 12) {
                 controlarImagemMago("g");
                 _jogoCompleto = !_jogoCompleto;
+                gerarInformacoesVitoria();
                 dispararConfete();
               } else if (dificuldade == "dificil" && qtdMatchs == 16) {
                 controlarImagemMago("g");
                 _jogoCompleto = !_jogoCompleto;
+                gerarInformacoesVitoria();
                 dispararConfete();
               }
             });
@@ -275,49 +302,83 @@ class _MemoriaState extends State<Memoria> {
       child: Center(
         child: Container(
           decoration: BoxDecoration(
-            color: Color(0xFF303d72),
+            image: DecorationImage(
+              image: AssetImage(_imagemVitoria),
+              fit: BoxFit.cover,
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.70), BlendMode.dstATop),
+            ),
             borderRadius:
                 BorderRadius.circular(20.0), // Define a borda arredondada
           ),
           height: tamanho * 0.75, // Altura da modal
           width: tamanho * 0.75, // Larg
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'Parabéns! Você completou o jogo da memoria!',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: tamanho * 0.04, color: Colors.white),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: tamanho * 0.15),
-                child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStatePropertyAll(Color(0xFF6cabb0))),
-                  onPressed: () {
-                    // Fechar o modal e reiniciar o jogo
-                    setState(() {
-                      _jogoCompleto = false;
-                      _numeros = gerarValores(qtdCartas);
-                      tentativas = 0;
-                      _imagemEscondida.fillRange(
-                          0, _imagemEscondida.length, true);
-                      _match.fillRange(0, _match.length, false);
-                      _imagemMago = Imagens.magoNeutro;
-                      _confettiController.stop;
-                      _iniciarCronometro();
-                    });
-                  },
-                  child: const Text(
-                    'Jogar novamente',
-                    style: TextStyle(color: Colors.white),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 6,
+                ),
+                Text(
+                  'Parabéns! Você completou o jogo da memoria!',
+                  textAlign: TextAlign.center,
+                  style:
+                      TextStyle(fontSize: tamanho * 0.04, color: Colors.white),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Text(
+                  "Conheça informações sobre as etinias locais do Tocantins no botão de saiba mais.",
+                  style: TextStyle(color: Colors.white),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Text(
+                  "Curiosidade",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  _curiosidadeVitoria,
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(color: Colors.white),
+                ),
+                const SizedBox(height: 20),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: tamanho * 0.15),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Color(0xFF6cabb0))),
+                    onPressed: () {
+                      // Fechar o modal e reiniciar o jogo
+                      setState(() {
+                        _jogoCompleto = false;
+                        _numeros = gerarValores(qtdCartas);
+                        tentativas = 0;
+                        _imagemEscondida.fillRange(
+                            0, _imagemEscondida.length, true);
+                        _match.fillRange(0, _match.length, false);
+                        _imagemMago = Imagens.magoNeutro;
+                        _imagemVitoria = "";
+                        _curiosidadeVitoria = "";
+                        _confettiController.stop;
+                        _iniciarCronometro();
+                      });
+                    },
+                    child: const Text(
+                      'Jogar novamente',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),

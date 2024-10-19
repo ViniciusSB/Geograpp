@@ -53,6 +53,11 @@ class Imagens {
   static const String magoMuitoBem = "lib/imagens/memoria/magico-muito-bem.gif";
   static const String magoBoa = "lib/imagens/memoria/magico-boa.gif";
   static const String magoParabens = "lib/imagens/memoria/magico-parabens.gif";
+  static const String indigenasArtesanato = "lib/imagens/memoria/indigenas-artesanato.jpeg";
+  static const String indigenasColheita = "lib/imagens/memoria/indigenas-colheita.jpeg";
+  static const String indigenasNavegando = "lib/imagens/memoria/indigenas-navegando.jpeg";
+  static const String indigenasPinturasCorporais = "lib/imagens/memoria/indigenas-pinturas-corporais.jpeg";
+  
 
   //Blocos Deslizantes
   static const String blocosLogo = "lib/imagens/blocos/blocos-logo.jpeg";

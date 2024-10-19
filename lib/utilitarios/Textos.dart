@@ -41,4 +41,11 @@ class Textos {
       "Projeto de Oscar Niemeyer: o Memorial Coluna Prestes foi projetado pelo renomado arquiteto brasileiro Oscar Niemeyer. Conhecido por seu estilo modernista e suas contribuições icônicas para a arquitetura em Brasília, Niemeyer criou o memorial como uma estrutura elegante e simbólica, que reflete a resistência e a luta pela justiça social.";
   static const String memorial3 =
       "Centro Cultural e Histórico: além de ser um monumento, o Memorial Coluna Prestes funciona como um centro cultural e histórico. Ele abriga exposições permanentes e temporárias sobre a vida de Luís Carlos Prestes, a Coluna Prestes e a história política do Brasil. O espaço também é utilizado para eventos culturais, palestras e atividades educacionais, promovendo o conhecimento e a reflexão sobre a história do país.";
+  static const String indigenasArtesanato =
+      "Arte e Artesanato: o artesanato indígena é rico e diversificado, incluindo itens como cerâmica, tecelagem, cestaria e ornamentos corporais.";
+  static const String indigenasColheita =
+      "Sistemas de Agricultura Sustentável: muitas comunidades indígenas praticam formas de agricultura sustentável que preservam a biodiversidade e o meio ambiente, como a roça de coivara.";
+  static const String indigenasNavegando =
+      "Culinária Tradicional: a dieta indígena é rica e variada, utilizando ingredientes como mandioca, milho, peixes, frutos e caça. Cada tribo tem pratos únicos e modos de preparo próprios.";
+  static const String indigenasPinturasCorporais = "Festas e Rituais: muitas comunidades têm festas e rituais complexos que celebram eventos importantes, como colheitas, casamentos e iniciações.";
 }

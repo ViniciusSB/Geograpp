@@ -27,23 +27,32 @@ class Imagens {
       "lib/imagens/quiz/arqueologiaGeologia.jpeg";
   static const String pecuaria = "lib/imagens/quiz/pecuaria.jpeg";
   static const String climaVegetacao = "lib/imagens/quiz/climaVegetacao.jpeg";
-  static const String comunidadesTradicionais = "lib/imagens/quiz/comunidadesTradicionais.jpeg";
+  static const String comunidadesTradicionais =
+      "lib/imagens/quiz/comunidadesTradicionais.jpeg";
   static const String turismo = "lib/imagens/quiz/turismo.jpeg";
   static const String relevo = "lib/imagens/quiz/relevo.jpeg";
   static const String hidrografia = "lib/imagens/quiz/hidrografia.jpeg";
-  
 
   //Memoria
   static const String bandeiraTocantins =
       "lib/imagens/memoria/bandeira-tocantins.jpg";
   static const String apinaje = "lib/imagens/memoria/1.jpg"; //Apinaje
+  static const String fonteApinaje = "Curt Nimuendaju, 1937."; //Apinaje
   static const String avaCanoeiro = "lib/imagens/memoria/2.jpg"; //Ava canoeiro
+  static const String fonteAvaCanoeiro = "Klaus Gunther, 1973."; //Ava canoeiro
   static const String javae = "lib/imagens/memoria/3.jpg"; //Javae
+  static const String fonteJavae = "Marcelo Camargo/Agência Brasil."; //Javae
   static const String karaja = "lib/imagens/memoria/4.jpg"; //Karaja
+  static const String fonteKaraja =
+      "Emerson Silva/Governo do Tocantins."; //Karaja
   static const String krahoKanela = "lib/imagens/memoria/5.jpg"; //Kraho-kanela
+  static const String fonteKrahoKanela = "Gazeta do Cerrado."; //Kraho-kanela
   static const String kraho = "lib/imagens/memoria/6.jpg"; //Kraho
+  static const String fonteKraho = "Vincent Carelli, 1983."; //Kraho
   static const String xambioa = "lib/imagens/memoria/7.jpg"; //Xambioa
+  static const String fonteXambioa = "André Toral,1982"; //Xambioa
   static const String xerente = "lib/imagens/memoria/8.jpg"; //Xerente
+  static const String fonteXerente = "Lídia Barroso."; //Xerente
   static const String indigenasLogo = "lib/imagens/memoria/indigenas-logo.jpeg";
   static const String magoOla = "lib/imagens/memoria/magico-ola.gif";
   static const String magoNeutro = "lib/imagens/memoria/magico-neutro.gif";
@@ -53,11 +62,14 @@ class Imagens {
   static const String magoMuitoBem = "lib/imagens/memoria/magico-muito-bem.gif";
   static const String magoBoa = "lib/imagens/memoria/magico-boa.gif";
   static const String magoParabens = "lib/imagens/memoria/magico-parabens.gif";
-  static const String indigenasArtesanato = "lib/imagens/memoria/indigenas-artesanato.jpeg";
-  static const String indigenasColheita = "lib/imagens/memoria/indigenas-colheita.jpeg";
-  static const String indigenasNavegando = "lib/imagens/memoria/indigenas-navegando.jpeg";
-  static const String indigenasPinturasCorporais = "lib/imagens/memoria/indigenas-pinturas-corporais.jpeg";
-  
+  static const String indigenasArtesanato =
+      "lib/imagens/memoria/indigenas-artesanato.jpeg";
+  static const String indigenasColheita =
+      "lib/imagens/memoria/indigenas-colheita.jpeg";
+  static const String indigenasNavegando =
+      "lib/imagens/memoria/indigenas-navegando.jpeg";
+  static const String indigenasPinturasCorporais =
+      "lib/imagens/memoria/indigenas-pinturas-corporais.jpeg";
 
   //Blocos Deslizantes
   static const String blocosLogo = "lib/imagens/blocos/blocos-logo.jpeg";

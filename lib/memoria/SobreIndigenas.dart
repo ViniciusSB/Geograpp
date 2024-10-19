@@ -61,6 +61,10 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
                 height: screenWidth * 0.75,
                 fit: BoxFit.cover,
               ),
+              Text(
+                "Fonte: ${dados["fonte"]}",
+                textAlign: TextAlign.center,
+              ),
               const SizedBox(
                 height: 16,
               ),
@@ -69,13 +73,17 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
                 textAlign: TextAlign.justify,
                 style: TextStyle(fontSize: screenWidth * 0.035),
               ),
-              InkWell(
-                onTap: _launchUrl,
-                child: Text(
-                  urlString,
-                  style: TextStyle(
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline,
+              Align(
+                alignment: Alignment.centerLeft,
+                child: InkWell(
+                  onTap: _launchUrl,
+                  child: Text(
+                    urlString,
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                    ),
                   ),
                 ),
               ),
@@ -119,6 +127,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Apinajé";
         dados["texto"] = Textos.textoApinaje;
         dados["caminho"] = Imagens.apinaje;
+        dados["fonte"] = Imagens.fonteApinaje;
         urlString = Textos.urlApinaje;
         _url = Uri.parse(Textos.urlApinaje);
 
@@ -127,6 +136,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Avá Canoeiro";
         dados["texto"] = Textos.textoAvaCanoeiro;
         dados["caminho"] = Imagens.avaCanoeiro;
+        dados["fonte"] = Imagens.fonteAvaCanoeiro;
         urlString = Textos.urlAvaCanoeiro;
         _url = Uri.parse(Textos.urlAvaCanoeiro);
         break;
@@ -134,6 +144,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Javaé";
         dados["texto"] = Textos.textoJavae;
         dados["caminho"] = Imagens.javae;
+        dados["fonte"] = Imagens.fonteJavae;
         urlString = Textos.urlJavae;
         _url = Uri.parse(Textos.urlJavae);
         break;
@@ -141,6 +152,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Karajá";
         dados["texto"] = Textos.textoKaraja;
         dados["caminho"] = Imagens.karaja;
+        dados["fonte"] = Imagens.fonteKaraja;
         urlString = Textos.urlKaraja;
         _url = Uri.parse(Textos.urlKaraja);
         break;
@@ -148,6 +160,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Krahô";
         dados["texto"] = Textos.textoKraho;
         dados["caminho"] = Imagens.kraho;
+        dados["fonte"] = Imagens.fonteKraho;
         urlString = Textos.urlKraho;
         _url = Uri.parse(Textos.urlKraho);
         break;
@@ -155,6 +168,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Krahô Kanela";
         dados["texto"] = Textos.textoKrahoKanela;
         dados["caminho"] = Imagens.krahoKanela;
+        dados["fonte"] = Imagens.fonteKrahoKanela;
         urlString = Textos.urlKrahoKanela;
         _url = Uri.parse(Textos.urlKrahoKanela);
         break;
@@ -162,6 +176,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Xambioá";
         dados["texto"] = Textos.textoXambioa;
         dados["caminho"] = Imagens.xambioa;
+        dados["fonte"] = Imagens.fonteXambioa;
         urlString = Textos.urlXambioa;
         _url = Uri.parse(Textos.urlXambioa);
         break;
@@ -169,6 +184,7 @@ class _SobreIndigenasState extends State<SobreIndigenas> {
         dados["nome"] = "Xerente";
         dados["texto"] = Textos.textoXerente;
         dados["caminho"] = Imagens.xerente;
+        dados["fonte"] = Imagens.fonteXerente;
         urlString = Textos.urlXerente;
         _url = Uri.parse(Textos.urlXerente);
         break;

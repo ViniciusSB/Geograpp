@@ -1,6 +1,7 @@
 import "dart:math";
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:geograpp/quiz/RevisarQuestao.dart';
 import 'package:geograpp/utilitarios/Imagens.dart';
 import 'package:geograpp/utilitarios/Perguntas.dart';
 import 'package:geograpp/utilitarios/Sons.dart';
@@ -30,6 +31,7 @@ class _QuizTocantinsState extends State<QuizTocantins> {
   late List _perguntas;
   late Perguntas perguntaas;
   late List<Map<String, String>> listaDePerguntas;
+  List<String> historicoRespostas = [];
   int _contador = 1;
   final AudioPlayer _audioPlayer = AudioPlayer();
 
@@ -40,6 +42,18 @@ class _QuizTocantinsState extends State<QuizTocantins> {
     listaDePerguntas = perguntaas.perguntas;
     _confettiController =
         ConfettiController(duration: const Duration(seconds: 1));
+  }
+
+  _navegacaoRevisarQuestao(List<Map<String, String>> lp, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => RevisarQuestao(
+          dadosQuestao: lp,
+          index: index,
+        ),
+      ),
+    );
   }
 
   void dispararConfete() {
@@ -97,6 +111,9 @@ class _QuizTocantinsState extends State<QuizTocantins> {
           _respostaErradaSom();
         }
         questaoFinalizada = true;
+        int numQuestao = _contador - 3;
+        listaDePerguntas[_contador - 4]["rd"] = resposta!; //resposta dada
+        listaDePerguntas[_contador - 4]["nq"] = numQuestao.toString();
       });
     } else {
       setState(() {
@@ -135,12 +152,16 @@ class _QuizTocantinsState extends State<QuizTocantins> {
       setState(() {
         questaoFinalizada = false;
         _questao = listaDePerguntas[_contador - 4];
-        List q = [];
+        List<String> q = [];
         q.add(_questao["p1"]);
         q.add(_questao["p2"]);
         q.add(_questao["p3"]);
         q.add(_questao["r"]);
         q.shuffle();
+        listaDePerguntas[_contador - 4]["p1"] = q[0];
+        listaDePerguntas[_contador - 4]["p2"] = q[1];
+        listaDePerguntas[_contador - 4]["p3"] = q[2];
+        listaDePerguntas[_contador - 4]["p4"] = q[3];
         _perguntas = q;
       });
     }
@@ -199,6 +220,47 @@ class _QuizTocantinsState extends State<QuizTocantins> {
     }
 
     return endereco;
+  }
+
+  List<Widget> _historicoQuestoes() {
+    List<Widget> leb = [];
+    final mediaQuery = MediaQuery.of(context);
+
+    for (int i = 0; i < listaDePerguntas.length; i++) {
+      bool acerto = listaDePerguntas[i]["rd"] == listaDePerguntas[i]["r"];
+      ElevatedButton eb = ElevatedButton(
+        onPressed: () => _navegacaoRevisarQuestao(listaDePerguntas, i),
+        style: ButtonStyle(
+          alignment: Alignment.center,
+          fixedSize: MaterialStateProperty.all<Size>(
+            Size.fromWidth(mediaQuery.size.width * 0.85),
+          ),
+          backgroundColor: MaterialStateProperty.all(
+              acerto ? Colors.green : Colors.red[600]),
+          foregroundColor: MaterialStateProperty.all(Colors.white),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            const RoundedRectangleBorder(
+              borderRadius: BorderRadius.zero,
+            ),
+          ),
+        ),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            listaDePerguntas[i]["q"]!,
+            textAlign: TextAlign.left,
+          ),
+        ),
+      );
+      leb.add(
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4.0),
+          child: eb,
+        ),
+      );
+    }
+
+    return leb;
   }
 
   @override
@@ -609,6 +671,9 @@ class _QuizTocantinsState extends State<QuizTocantins> {
                               ),
                             ],
                           ),
+                        const SizedBox(
+                          height: 6,
+                        ),
                         ElevatedButton(
                             style: const ButtonStyle(
                                 backgroundColor: MaterialStatePropertyAll(
@@ -622,6 +687,21 @@ class _QuizTocantinsState extends State<QuizTocantins> {
                                   color: Colors.white,
                                   fontSize: screenWidth * 0.04),
                             )),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        Text(
+                          "Histórico de questões",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: screenWidth * 0.06),
+                        ),
+                        const SizedBox(
+                          height: 6,
+                        ),
+                        ..._historicoQuestoes(),
+                        const SizedBox(
+                          height: 20,
+                        ),
                       ],
                     )
                 ],

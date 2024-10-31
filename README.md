@@ -20,6 +20,9 @@ Aplicativo para o ensino-aprendizagem de geografia do 6º e 7º ano do ensino fu
 
 ## Imagens
 
+<h4>Tela inicial</h4>
+
+![Quiz inicial](imagens-git/geograpp-tela-inicial.png)
 
 <details>
 
